@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
             "Tracks",
             style: TextStyle(
               color: Colors.white,
-              fontSize: 20,
+              fontSize: 16,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -54,8 +54,17 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ListView.separated(
           itemBuilder: (BuildContext context,int pos) {
             return Container(
-              height : 100,
-              color: Colors.amber,
+              child: ListTile(
+                leading : ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.network(
+                    "https://picsum.photos/seed/picsum/200/300",
+                    height: 50,
+                    width: 50,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
             );
           },
           separatorBuilder: (BuildContext context, int pos) {
@@ -64,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
               height: 10,
             );
           },
-          itemCount: 10,),
+          itemCount: 20,),
       ),
       
     );
