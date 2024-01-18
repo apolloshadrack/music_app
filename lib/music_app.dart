@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_list/music_home_page.dart';
 import 'package:music_list/music_list_page.dart';
 
 class MusicApp extends StatelessWidget {
@@ -14,7 +15,7 @@ class MusicApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MusicHomePage(),
     );
   }
 }

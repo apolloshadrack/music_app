@@ -1,34 +1,15 @@
 import 'package:flutter/material.dart';
 
-class MusicApp extends StatelessWidget {
-  const MusicApp({super.key});
 
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
- 
-  final String title;
+class MusicListPage extends StatefulWidget {
+  const MusicListPage({super.key,});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MusicListPage> createState() => _MusicListPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MusicListPageState extends State<MusicListPage> {
+  int activeIndex = 0;
   List<Map<String, dynamic >> feedItems = [
     {
       "title": "Good Morning",
@@ -56,6 +37,26 @@ class _MyHomePageState extends State<MyHomePage> {
       "image": "https://picsum.photos/seed/picsum/900/300",
     },
     {
+      "title": "Life of Pablo",
+      "subtitle": "Kanye West",
+      "image": "https://picsum.photos/seed/picsum/200/300",
+    },
+    {
+      "title": "Graduation Day",
+      "subtitle": "Kanye West",
+      "image": "https://picsum.photos/seed/picsum/900/300",
+    },
+    {
+      "title": "Life of Pablo",
+      "subtitle": "Kanye West",
+      "image": "https://picsum.photos/seed/picsum/200/300",
+    },
+    {
+      "title": "Graduation Day",
+      "subtitle": "Kanye West",
+      "image": "https://picsum.photos/seed/picsum/900/300",
+    },
+    {
       "title": "Rihanna loves Rock",
       "subtitle": "Kanye West",
       "image": "https://picsum.photos/seed/picsum/1700/300",
@@ -71,25 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     
-    return Scaffold(
-      appBar: AppBar(
-        
-        backgroundColor: Colors.black,
-        leadingWidth: 150,
-        leading: const Padding(
-          padding:  EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          child:  Text(
-              "Tracks",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-        ),
-    
-      ),
-      body: Container(
+    return Container(
         color: Colors.black,
         padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
         child: ListView.separated(
@@ -100,13 +83,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
                 leading : ClipRRect(
                   borderRadius: BorderRadius.circular(10),
-                  child: Container(
-                    child: Image.network(
-                      item["image"] ,                     
-                      height: 50,
-                      width: 50,
-                      fit: BoxFit.cover,
-                    ),
+                  child: Image.network(
+                    item["image"] ,                     
+                    height: 50,
+                    width: 50,
+                    fit: BoxFit.cover,
                   ),
                 ),
 
@@ -148,8 +129,6 @@ class _MyHomePageState extends State<MyHomePage> {
           itemCount: feedItems.length,
           
         ),
-      ),
-      
-    );
+      );
   }
 }
